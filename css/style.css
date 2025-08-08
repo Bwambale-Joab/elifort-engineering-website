@@ -241,7 +241,14 @@ section:not(.hero):nth-of-type(even) { background-color: var(--background-light)
     .about-image { grid-row: 1; margin: 0 auto 2rem auto; }
 }
 @media (max-width: 768px) {
-    .logo-text { display: none; }
+    /* .logo-text { display: none; } <-- We removed this line */
+    .logo-text { 
+        font-size: 0.9rem; /* Make the font slightly smaller on mobile */
+        white-space: normal; /* Allow it to wrap if necessary, though unlikely */
+        line-height: 1.2;
+    }
+
+}
     .main-nav .btn-primary { display: none; }
     .hamburger-menu { display: block; }
     .toggle .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
