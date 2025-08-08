@@ -1,0 +1,312 @@
+/* ============================================= */
+/* ELIFORT ENGINEERING - V6.0 (Final Professional) */
+/* ============================================= */
+
+/*
+1.  RESET & GLOBAL VARIABLES
+2.  TYPOGRAPHY & BASIC STYLES
+3.  UTILITIES (Container, Buttons)
+4.  HEADER & NAVIGATION (Desktop)
+5.  HERO & PAGE HEADERS
+6.  GENERAL SECTION & CARD STYLES
+7.  PAGE-SPECIFIC STYLES
+8.  FOOTER
+9.  ANIMATIONS & INTERACTIVITY
+10. RESPONSIVE DESIGN (Including Mobile Nav)
+*/
+
+/* 1. RESET & GLOBAL VARIABLES */
+/* 1. RESET & GLOBAL VARIABLES - Professional Palette v3 */
+:root {
+    /* --- NEW PROFESSIONAL PALETTE --- */
+    /* Core Brand Colors */
+    --primary-color: #1A252F;      /* Deep Midnight Blue: For footer and dark backgrounds. */
+    --secondary-color: #4A6C7D;    /* Muted Teal/Steel: For buttons, links, and icons. */
+    --accent-color: #D46F52;       /* Burnt Sienna: A slightly brighter accent for hovers. */
+    --accent-color-bold: #B85B40;  /* Rich Terracotta: The unique, bold color for main headings. */
+
+    /* Background & Text Colors */
+    --background-main: #FFFFFF;    /* Crisp White: The primary background for maximum readability. */
+    --background-light: #F8F6F2;   /* Warm Stone: For alternating sections, giving a premium, gallery feel. */
+    --text-color-dark: #333333;    /* Dark Gray: For all primary body text. */
+    --text-color-light: #EAEAEA;   /* Soft White: For text on dark backgrounds (easier on eyes than pure white). */
+
+    /* UI & Border Colors */
+    --border-color: #dbe1dc;       /* Softer, warm-toned gray for borders. */
+    
+    /* --- NEW PROFESSIONAL FONTS --- */
+    --font-primary: 'Montserrat', sans-serif; /* For all headings. */
+    --font-secondary: 'Lato', sans-serif;     /* For all body text. */
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* 2. TYPOGRAPHY & BASIC STYLES */
+/* In: 2. TYPOGRAPHY & BASIC STYLES */
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.7;
+    color: var(--text-color-dark);
+    background-color: var(--background-light); /* <-- CHANGE: Sets the entire page background to our warm stone color */
+    overflow-x: hidden;
+}
+
+main {
+    background-color: var(--background-main); /* <-- NEW: Sets the main content area to crisp white */
+    /* Optional: Add a subtle shadow to lift it off the page */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+h1, h2, h3 { 
+    font-family: var(--font-primary); /* Now uses Montserrat */
+    line-height: 1.3; 
+    color: var(--primary-color);
+}
+
+h1 { font-size: 3rem; font-weight: 700; }
+
+h2 { 
+    font-size: 2.2rem; 
+    font-weight: 700;
+    text-align: center; 
+    margin-bottom: 3rem;
+    color: var(--accent-color-bold); /* APPLYING THE UNIQUE BOLD COLOR */
+}
+
+h3 { 
+    font-size: 1.3rem; 
+    font-weight: 600;
+    margin-bottom: 1rem; 
+}
+
+p { margin-bottom: 1rem; color: #555; }
+a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--accent-color); }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* 3. UTILITIES */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+.btn { display: inline-block; padding: 12px 28px; border-radius: 5px; font-weight: 600; font-family: var(--font-primary); transition: all 0.3s ease; text-align: center; }
+.btn-primary { background-color: var(--secondary-color); color: #fff; border: 2px solid var(--secondary-color); }
+.btn-primary:hover { background-color: var(--accent-color); border-color: var(--accent-color); }
+.btn-secondary { background-color: #fff; color: var(--primary-color); border: 2px solid #fff; }
+.btn-secondary:hover { background-color: transparent; color: #fff; }
+
+/* 4. HEADER & NAVIGATION */
+.header { background-color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+.main-nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo img { height: 50px; flex-shrink: 0; }
+.logo-text { font-family: var(--font-primary); font-size: 1.2rem; font-weight: 600; color: var(--primary-color); white-space: nowrap; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { font-family: var(--font-primary); font-weight: 500; color: var(--primary-color); padding: 5px 0; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--accent-color); transition: width 0.3s ease; }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--secondary-color); font-weight: 600; }
+
+/* 5. HERO & PAGE HEADERS */
+.hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background-color: var(--primary-color); color: #fff; }
+#tsparticles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+.hero-content { position: relative; z-index: 1; padding: 0 15px; }
+.hero-title { font-size: 3.2rem; line-height: 1.2; margin-bottom: 1rem; color: #fff; }
+.hero-subtitle { font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-color-light); max-width: 700px; margin-left: auto; margin-right: auto; }
+
+.page-header {
+    padding: 60px 0; color: #fff; text-align: center; position: relative; z-index: 1;
+    background-size: cover; background-position: center; background-attachment: fixed;
+}
+.page-header::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(13, 27, 42, 0.85); z-index: -1;
+}
+.page-header h1 { font-size: 2.8rem; color: #fff; }
+
+/* Specific Page Header Backgrounds */
+body.about-page .page-header { background-image: url('../images/background\ shining\ structure.png');background-position: 50%; color: #29f805; }
+body.services-page .page-header { background-image: url('../images/beautiful\ shining\ house.png'); }
+body.projects-page .page-header { background-image: url('../images/white\ background\ picture.png'); }
+body.contact-page .page-header { background-image: url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=2070'); }
+
+/* 6. GENERAL SECTION & CARD STYLES */
+section { padding: 80px 0; }
+section:not(.hero):nth-of-type(even) { background-color: var(--background-light); }
+.section-intro { max-width: 700px; margin: 0 auto 3rem auto; text-align: center; }
+
+/* CORRECTED BACKGROUNDS: Using a pseudo-element for reliable overlay */
+.has-bg-image { position: relative; z-index: 1; }
+.has-bg-image::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; background-attachment: fixed;
+    opacity: 0.07; z-index: -1;
+}
+.about-snippet.has-bg-image::before { background-image: url('../images/logo.png');  background-color: var(--primary-color); /* Adds a dark overlay using your brand color */
+    background-blend-mode:overlay;         /* Blends the image and color beautifully */
+    opacity: 0.1;                           /* Increase opacity from 0.07 to 0.1 or higher */
+}
+.core-services.has-bg-image::before { background-image: url('../images/white\ background\ picture.png');background-color: var(--primary-color); /* Adds a dark overlay using your brand color */
+    background-blend-mode:overlay;         /* Blends the image and color beautifully */
+    opacity: 0.5;                           /* Increase opacity from 0.07 to 0.1 or higher */ }
+.why-us.has-bg-image::before { background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069'); }
+
+/* In: 6. GENERAL SECTION & CARD STYLES */
+.service-card, .feature-item, .service-item, .project-card, .value-item {
+    background: #fff;
+    padding: 2.5rem 2rem; /* Increased vertical padding for more breathing room */
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid var(--border-color); /* Uses our new, softer border color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Softer, more diffuse shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%;
+}
+
+.service-card:hover, .feature-item:hover, .service-item:hover, .project-card:hover, .value-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--secondary-color); /* Adds a subtle border highlight on hover */
+    /* Shadow uses a hint of our secondary color for a premium effect */
+    box-shadow: 0 12px 30px rgba(74, 108, 125, 0.12); 
+}
+.service-icon, .feature-icon, .service-icon-large, .value-icon { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--secondary-color); }
+
+/* 7. PAGE-SPECIFIC STYLES */
+/* About Page */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.team-grid, .values-grid, .services-page-grid, .projects-grid {
+    display: grid;
+    gap: 2.5rem; /* Standardized gap for all main content grids */
+}
+.team-member-card { text-align: center; }
+.team-photo { width: 150px; height: 250px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem auto; border: 4px solid var(--secondary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.team-title { font-style: italic; }
+.team-contact a { font-size: 1.5rem; margin: 0 0.5rem; }
+
+/* Services Page */
+/* We keep the individual column sizing as it is tailored to the content */
+.team-grid, .values-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.services-page-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+/* Projects Page */
+.projects-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+
+/* Contact Page - CORRECTED ALIGNMENT & BOUNDARIES */
+.contact-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: flex-start; }
+.contact-form-container, .contact-details-container {
+    background-color: #fff; padding: 2rem; border: 1px solid var(--border-color); border-radius: 8px;
+}
+.contact-form .form-group { margin-bottom: 1.5rem; }
+.contact-form label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-family: var(--font-primary); }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; font-family: var(--font-secondary); transition: border-color 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--secondary-color); box-shadow: 0 0 0 2px rgba(0, 119, 182, 0.2); }
+.contact-details-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+.contact-details-list i { font-size: 1.5rem; color: var(--secondary-color); margin-top: 5px; width: 25px; text-align: center; }
+.map-section { padding: 0; line-height: 0; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin-top: 3rem; }
+
+/* 8. FOOTER - CORRECTED ALIGNMENT */
+.footer { background-color: var(--primary-color); color: var(--text-color-light); padding: 60px 0 20px 0; }
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 3rem; /* A slightly larger gap for the footer is good practice */
+}
+.footer-col { display: flex; flex-direction: column; }
+.footer-logo-container { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.footer-logo-container img { height: 40px; width: auto; flex-shrink: 0; }
+.footer-logo-text { font-family: var(--font-primary); font-size: 1.2rem; font-weight: 600; color: #fff; }
+.footer-tagline { color: rgba(255,255,255,0.7); margin-top: 0; font-size: 0.9rem; }
+.footer-col h3 { color: var(--secondary-color); margin-bottom: 1.5rem; font-size: 1.2rem; }
+.footer-col p, .footer-col a { color: rgba(255,255,255,0.7); }
+.footer-col a:hover { color: var(--accent-color); }
+.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem; margin-top: 2rem; }
+
+/* 9. ANIMATIONS & INTERACTIVITY */
+.interactive-heading span { display: inline-block; transition: transform 0.2s, color 0.4s; }
+.interactive-heading span:hover { transform: translateY(-5px); color: var(--accent-color); }
+.social-links a { color: #fff; font-size: 1.5rem; margin-right: 1rem; display: inline-block; }
+@keyframes rotate-and-color-change { /* keyframes code remains the same */ }
+.social-icon { transition: all 0.3s ease; }
+.footer:hover .social-icon { animation: rotate-and-color-change 4s linear infinite; }
+/* stagger animation delays remain the same */
+.social-icon:hover { transform: scale(1.3); animation-play-state: paused; color: var(--accent-color) !important; }
+
+/* 10. RESPONSIVE DESIGN - FOOLPROOF MOBILE NAVIGATION */
+.hamburger-menu { display: none; cursor: pointer; position: relative; z-index: 1001; }
+.hamburger-menu .bar { width: 25px; height: 3px; background-color: var(--primary-color); margin: 5px 0; transition: all 0.3s ease; }
+@media (max-width: 992px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    .logo-text { font-size: 1rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-image { grid-row: 1; margin: 0 auto 2rem auto; }
+}
+@media (max-width: 768px) {
+    .logo-text { display: none; }
+    .main-nav .btn-primary { display: none; }
+    .hamburger-menu { display: block; }
+    .toggle .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+    .toggle .bar:nth-child(2) { opacity: 0; }
+    .toggle .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+    .nav-links {
+        position: fixed; top: 0; right: -100%; /* Start completely off-screen */
+        height: 100vh; width: 80%; max-width: 300px;
+        background-color: var(--primary-color);
+        flex-direction: column; justify-content: center;
+        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+    .nav-links.nav-active { right: 0; }
+    .nav-links a { color: #fff; font-size: 1.2rem; }
+}
+/* 11. WORLD-CLASS INTERACTIVITY */
+/* ============================================= */
+
+/* Cursor Hover States */
+a:hover ~ .cursor-outline, .btn:hover ~ .cursor-outline, .hamburger-menu:hover ~ .cursor-outline {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(74, 108, 125, 0.2); /* Muted Teal with transparency */
+}
+a:hover ~ .cursor-dot, .btn:hover ~ .cursor-dot, .hamburger-menu:hover ~ .cursor-dot {
+    opacity: 0;
+}
+/* Blueprint Grid Overlay on Service Items */
+.service-item {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(var(--border-color) 1px, transparent 1px), 
+        linear-gradient(to right, var(--border-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.service-item:hover::before {
+    opacity: 0.3;
+}
+
+/* Ensure content stays above the grid */
+.service-item > * {
+    position: relative;
+    z-index: 2;
+}
+/* Blueprint Scan Interactive Heading */
+.interactive-heading {
+    cursor: default; /* Use a standard cursor */
+}
+
+.interactive-heading span {
+    display: inline-block; /* Allows for transform */
+    color: #B0B0B0; /* The 'inactive' blueprint color - a soft gray */
+    transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
